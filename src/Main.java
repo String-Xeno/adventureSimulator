@@ -102,7 +102,12 @@ public class Main {
     }
 
     private static void heal() {
-
+        if (playerHP + 20 > maxplayerHP) {
+            playerHP = maxplayerHP;
+        }
+        else {
+            playerHP += 20;
+        }
 
         System.out.println("You succesfully used a healing item and you are now on " + playerHP + " HP!\nYou have " + healingitems + " left");
     }
@@ -145,6 +150,8 @@ public class Main {
         experiencepoints -= experiencefornextlevel;
         level++;
         nextlevel++;
+        maxplayerHP = (int) (maxplayerHP*1.1);
+        playerATKDMG++;
         experiencefornextlevel = (int) (experiencefornextlevel * 1.25);
     }
 
